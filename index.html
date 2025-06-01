@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaHost - Free & Reliable Web Hosting with AI Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .ai-tool-card {
+            background-color: #ffffff;
+            padding: 2rem; /* 32px */
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease-in-out;
+        }
+        .ai-tool-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #667eea; /* Indigo */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Custom styles for message boxes */
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            color: white;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            min-width: 250px;
+            text-align: center;
+        }
+        .message-box.success {
+            background-color: #48bb78; /* green-500 */
+        }
+        .message-box.error {
+            background-color: #f56565; /* red-500 */
+        }
+        .message-box.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">NovaHost</a>
+            <div class="space-x-4">
+                <a href="#home" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                <a href="#features" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                <a href="#ai-tools" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">✨ AI Tools</a>
+                <a href="#pricing" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Launch Your Dream Website, For Free!</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">NovaHost offers reliable, fast, and completely free web hosting to get your ideas online. No hidden fees, just pure hosting power.</p>
+            <a href="#pricing" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 text-lg">Get Started Now</a>
+        </div>
+    </section>
+
+    <section id="features" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Why Choose NovaHost?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg transition-all duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 text-indigo-600 rounded-full mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-700">Lightning Fast Speed</h3>
+                    <p class="text-gray-600">Our servers are optimized for speed, ensuring your website loads quickly for all visitors.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg transition-all duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 text-indigo-600 rounded-full mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-700">Reliable & Secure</h3>
+                    <p class="text-gray-600">With 99.9% uptime and robust security measures, your website is safe and always accessible.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg transition-all duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 text-indigo-600 rounded-full mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-700">Completely Free</h3>
+                    <p class="text-gray-600">Get started without any cost. Perfect for personal projects, portfolios, or testing new ideas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-tools" class="py-16 md:py-24 bg-indigo-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">✨ AI-Powered Tools</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">Unleash creativity with our AI tools, designed to help you build an amazing online presence.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="ai-tool-card">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 16v-2m8-6h-2M4 12H2m15.364 6.364l-1.414-1.414M5.05 5.05l1.414 1.414m12.728 0l-1.414 1.414M6.464 17.536l1.414-1.414" />
+                        </svg>
+                        <h3 class="text-2xl font-semibold text-gray-700">Website Name Suggester</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Describe your project or idea, and our AI will suggest creative and catchy website names.</p>
+                    <input type="text" id="nameKeywords" placeholder="e.g., 'online bakery for custom cakes'" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none">
+                    <button id="generateNameButton" class="w-full bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300">✨ Generate Names</button>
+                    <div id="nameSuggestionsLoader" class="hidden loader"></div>
+                    <div id="nameSuggestions" class="mt-4 p-4 bg-gray-50 rounded-lg min-h-[100px] text-gray-700 border border-gray-200">
+                        <p class="text-gray-400 italic">Your AI-generated website name ideas will show up here...</p>
+                    </div>
+                </div>
+
+                <div class="ai-tool-card">
+                     <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </svg>
+                        <h3 class="text-2xl font-semibold text-gray-700">Tagline Generator</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Tell us about your website, and our AI will craft compelling taglines to capture attention.</p>
+                    <input type="text" id="taglineTopic" placeholder="e.g., 'A blog about minimalist travel'" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none">
+                    <button id="generateTaglineButton" class="w-full bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition duration-300">✨ Generate Taglines</button>
+                    <div id="taglineSuggestionsLoader" class="hidden loader"></div>
+                    <div id="taglineSuggestions" class="mt-4 p-4 bg-gray-50 rounded-lg min-h-[100px] text-gray-700 border border-gray-200">
+                        <p class="text-gray-400 italic">Your AI-generated taglines will show up here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Simple, Transparent Pricing</h2>
+            <div class="max-w-md mx-auto bg-indigo-50 p-8 rounded-xl shadow-xl border border-indigo-200">
+                <h3 class="text-2xl font-semibold text-indigo-700 mb-4 text-center">NovaHost Free Tier</h3>
+                <p class="text-5xl font-bold text-indigo-600 text-center mb-6">$0<span class="text-xl font-normal text-gray-500">/month</span></p>
+                <ul class="space-y-3 text-gray-600 mb-8">
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg> 1 Website</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg> 500MB SSD Storage</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg> 5GB Bandwidth</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg> Free Subdomain (yourname.novahost.io)</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg> Basic Support</li>
+                </ul>
+                <button class="w-full bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 text-lg">Sign Up for Free</button>
+                <p class="text-xs text-gray-500 mt-4 text-center">No credit card required. Ever.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 hero-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Go Live?</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-xl mx-auto">Join thousands of developers and creators who trust NovaHost. Get your free hosting account today!</p>
+            <a href="#pricing" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 text-lg">Create Your Free Account</a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="currentYear"></span> NovaHost. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with <span class="text-red-400">&hearts;</span> for the open web.</p>
+        </div>
+    </footer>
+
+    <div id="messageBoxContainer"></div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- AI Tool Functions ---
+        const nameKeywordsInput = document.getElementById('nameKeywords');
+        const generateNameButton = document.getElementById('generateNameButton');
+        const nameSuggestionsDiv = document.getElementById('nameSuggestions');
+        const nameLoader = document.getElementById('nameSuggestionsLoader');
+
+        const taglineTopicInput = document.getElementById('taglineTopic');
+        const generateTaglineButton = document.getElementById('generateTaglineButton');
+        const taglineSuggestionsDiv = document.getElementById('taglineSuggestions');
+        const taglineLoader = document.getElementById('taglineSuggestionsLoader');
+        
+        const messageBoxContainer = document.getElementById('messageBoxContainer');
+
+        // Function to show a message box
+        function showMessage(message, type = 'success') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message-box ${type}`;
+            messageDiv.textContent = message;
+            messageBoxContainer.appendChild(messageDiv);
+            
+            // Trigger reflow to enable transition
+            messageDiv.offsetHeight; 
+            messageDiv.classList.add('show');
+
+            setTimeout(() => {
+                messageDiv.classList.remove('show');
+                setTimeout(() => {
+                    messageBoxContainer.removeChild(messageDiv);
+                }, 500); // Match transition duration
+            }, 3000); // Display message for 3 seconds
+        }
+
+
+        async function callGeminiAPI(prompt, loaderElement, resultElement, resultType) {
+            loaderElement.classList.remove('hidden');
+            resultElement.innerHTML = `<p class="text-gray-400 italic">✨ Our AI is thinking...</p>`;
+            
+            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // Left empty as per instructions
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('API Error:', errorData);
+                    throw new Error(`API request failed with status ${response.status}: ${errorData?.error?.message || 'Unknown error'}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    // Simple formatting: split by newline and wrap in paragraphs or list items
+                    const items = text.split('\n').map(item => item.trim()).filter(item => item.length > 0);
+                    if (items.length > 0) {
+                        resultElement.innerHTML = `<ul class="list-disc list-inside space-y-1">${items.map(item => `<li>${item.replace(/^- /, '')}</li>`).join('')}</ul>`;
+                    } else {
+                        resultElement.innerHTML = `<p class="text-gray-500">AI couldn't generate ${resultType} for this. Try different keywords.</p>`;
+                    }
+                    showMessage(`${resultType} generated successfully!`, 'success');
+                } else {
+                    console.error('Unexpected API response structure:', result);
+                    resultElement.innerHTML = `<p class="text-red-500">Could not retrieve ${resultType}. The AI might be busy or returned an unexpected response.</p>`;
+                     showMessage(`Failed to generate ${resultType}. Unexpected response.`, 'error');
+                }
+
+            } catch (error) {
+                console.error(`Error generating ${resultType}:`, error);
+                resultElement.innerHTML = `<p class="text-red-500">An error occurred while generating ${resultType}. Please check the console for details and try again. (${error.message})</p>`;
+                showMessage(`Error generating ${resultType}: ${error.message}`, 'error');
+            } finally {
+                loaderElement.classList.add('hidden');
+            }
+        }
+
+        // Event Listener for Website Name Generator
+        generateNameButton.addEventListener('click', () => {
+            const keywords = nameKeywordsInput.value.trim();
+            if (!keywords) {
+                showMessage('Please enter some keywords for your website name.', 'error');
+                nameSuggestionsDiv.innerHTML = '<p class="text-red-500">Please enter some keywords first.</p>';
+                return;
+            }
+            const prompt = `Suggest 5 creative and available-sounding domain name ideas (without the .com or other TLDs) for a website about: "${keywords}". Present them as a simple list.`;
+            callGeminiAPI(prompt, nameLoader, nameSuggestionsDiv, 'website names');
+        });
+
+        // Event Listener for Tagline Generator
+        generateTaglineButton.addEventListener('click', () => {
+            const topic = taglineTopicInput.value.trim();
+            if (!topic) {
+                showMessage('Please describe your website topic for taglines.', 'error');
+                taglineSuggestionsDiv.innerHTML = '<p class="text-red-500">Please describe your website topic first.</p>';
+                return;
+            }
+            const prompt = `Generate 3 catchy and concise taglines for a website about: "${topic}". Present them as a simple list.`;
+            callGeminiAPI(prompt, taglineLoader, taglineSuggestionsDiv, 'taglines');
+        });
+
+    </script>
+
+</body>
+</html>
